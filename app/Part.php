@@ -17,4 +17,5 @@ class Part extends Model
     {
         return $this->belongsTo('App\Khatma','khatma_id');
     }
+    
 }

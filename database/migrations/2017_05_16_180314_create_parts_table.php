@@ -20,7 +20,7 @@ class CreatePartsTable extends Migration
             $table->foreign('person_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->integer('khatma_id')->unsigned();
-            $table->foreign('khatma_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('khatma_id')->references('id')->on('khatma')->onDelete('cascade');
 
             $table->integer('part_number');
             $table->integer('start_page');

@@ -18,4 +18,9 @@ class Khatma extends Model
     {
         return $this->belongsTo('App\Person');
     }
+
+    public function subscribedUsers()
+    {
+        return $this->belongsToMany('App\User','user_khatma');
+    }
 }
