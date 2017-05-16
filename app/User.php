@@ -55,7 +55,7 @@ class User extends Authenticatable
 
     public function subscribedKhatma()
     {
-        return $this->belongsToMany('App\Khatma','user_khatma');
+        return $this->belongsToMany('App\Khatma','user_khatma','user_id','khatma_id');
     }
     
 }
