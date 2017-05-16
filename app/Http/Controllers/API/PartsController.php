@@ -11,7 +11,7 @@ class PartsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only('subscribe','addPage');
+        $this->middleware('auth')->only('subscribe', 'addPage');
     }
 
     /**
@@ -66,7 +66,15 @@ class PartsController extends Controller
             $user->parts()->save($part);
             $part->taken = true;
             $part->save();
-            $user->khatma()->attach($khatma);
+            $user_khatmas = $user->khatma()->get();
+            $flag = true;
+            foreach ($user_khatmas as $k) {
+                if ($k->id == $khatma) {
+                    $flag = false;
+                }
+            }
+            if ($flag)
+                $user->khatma()->attach($khatma);
             $data['statues'] = "200 Ok";
             $data['error'] = null;
             $data['data'] = null;
