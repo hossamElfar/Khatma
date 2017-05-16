@@ -21,6 +21,11 @@ class Khatma extends Model
 
     public function subscribedUsers()
     {
-        return $this->belongsToMany('App\User','user_khatma','khatma_id','user_id');
+        return $this->belongsToMany('App\User', 'user_khatma', 'khatma_id', 'user_id');
+    }
+
+    public function parts()
+    {
+        return $this->hasMany('App\Part');
     }
 }

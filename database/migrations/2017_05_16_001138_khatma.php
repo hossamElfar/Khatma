@@ -20,7 +20,7 @@ class Khatma extends Migration
             $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->integer('person_id')->unsigned();
-            $table->foreign('person_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('person_id')->references('id')->on('cases')->onDelete('cascade');
 
             $table->timestamps();
         });

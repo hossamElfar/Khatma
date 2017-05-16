@@ -17,7 +17,7 @@ class Person extends Model
     
     public function khatma()
     {
-        return $this->hasMany('App\khatma')->first();
+        return $this->hasMany('App\Khatma')->first();
     }
 
     public function parts()

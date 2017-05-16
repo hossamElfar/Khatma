@@ -17,16 +17,18 @@ class CreatePartsTable extends Migration
             $table->increments('id');
 
             $table->integer('person_id')->unsigned();
-            $table->foreign('person_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('person_id')->references('id')->on('cases')->onDelete('cascade');
 
             $table->integer('khatma_id')->unsigned();
             $table->foreign('khatma_id')->references('id')->on('khatma')->onDelete('cascade');
 
-            $table->integer('part_number');
+            $table->integer('number_of_part');
             $table->integer('start_page');
             $table->integer('end_page');
             $table->integer('current_page');
-            $table->string('name');
+            $table->string('name_en');
+            $table->string('name_ar');
+            $table->boolean('taken')->default(false);
             $table->timestamps();
         });
     }

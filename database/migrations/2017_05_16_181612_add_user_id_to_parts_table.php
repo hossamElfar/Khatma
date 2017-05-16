@@ -15,7 +15,7 @@ class AddUserIdToPartsTable extends Migration
     {
         Schema::table('parts', function (Blueprint $table) {
 
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });

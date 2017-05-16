@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function parts()
     {
-        return $this->hasMany('App\Part', 'person_id');
+        return $this->hasMany('App\Part', 'user_id');
     }
 
     public function subscribedKhatma()
