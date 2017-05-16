@@ -1,0 +1,79 @@
+\* Authentication API*\
+POST \api\v1\register guest
+
+request
+{
+  "name": "String",
+  "email": "String",
+  "phone": "String",
+  "password":"String",
+  "password_confirmation": "String",
+  "gender": "String",
+  "date_of_birth": "String YYYY-MM-DD"
+}
+
+response
+{
+  "message": "200 Ok",
+  "confirmation": "String"
+}
+
+GET \api\v1\register\verify\:code guest
+
+request
+{
+
+}
+
+response
+{
+  "message": "Ok",
+  "token": "String"
+}
+
+POST \api\v1\login guest
+
+request
+{
+  "email": "String",
+  "password": "String"
+}
+
+response
+{
+  "token": "String"
+}
+
+POST \api\v1\update user
+
+request
+{
+  "name": "String",
+  "email": "String",
+  "phone": "String",
+  "password":"String",
+  "password_confirmation": "String",
+  "gender": "String",
+  "date_of_birth": "String YYYY-MM-DD",
+  "orgaization": "String"
+}
+
+response
+{
+  "statues": "200 Ok",
+  "error": null,
+  "data": {
+    "id": 1,
+    "name": "Hossam Ahmed",
+    "email": "hossam.elfar95@gmail.com",
+    "created_at": "2017-05-15 23:01:45",
+    "updated_at": "2017-05-15 23:20:29",
+    "phone": "01066795748",
+    "pp": "",
+    "organization": "GUC",
+    "code": "4b0mu",
+    "confirmed": "1",
+    "date_of_birth": "1995-05-05 00:00:00",
+    "gender": "male"
+  }
+}
