@@ -56,7 +56,7 @@ class PersonsController extends Controller
                 }
                 $overall += $percentage;
             }
-            $overall_percentage = ($overall / 30) * 100;
+            $overall_percentage = ($overall / 30) ;
             $person['progress'] = $overall_percentage;
         }
         $data['statues'] = "200 Ok";

@@ -41,7 +41,7 @@ class KhatmaController extends Controller
                 }
                 $overall += $percentage;
             }
-            $overall_percentage = ($overall / 30) * 100;
+            $overall_percentage = ($overall / 30);
             $khatma['progress'] = $overall_percentage;
             $khatma['person'] = $khatma->person()->get();
             $khatma['created_by'] = $khatma->creator()->get();
@@ -63,6 +63,7 @@ class KhatmaController extends Controller
     {
         $khatma = Khatma::find($id);
         $parts = $khatma->parts()->get();
+        $overall = 0;
         foreach ($parts as $key => $part) {
             $end_page = $part->end_page;
             $current_page = $part->current_page;
@@ -79,13 +80,15 @@ class KhatmaController extends Controller
                     }
                 }
             }
+            $overall += $percentage;
             $part['progress'] = $percentage;
         }
         $data['statues'] = "200 Ok";
         $data['error'] = null;
         $data['data']['khatma'] = $khatma;
-        $data['data']['khatma']['person'] = $khatma->person;
-        $data['data']['khatma']['created_by'] = $khatma->creator;
+        $data['data']['progress'] = $overall / 30;
+        $data['data']['khatma']['person'] = $khatma->person()->get();
+        $data['data']['khatma']['created_by'] = $khatma->creator()->get();
         $data['data']['khatma']['parts'] = $parts;
         return response()->json($data, 200);
     }

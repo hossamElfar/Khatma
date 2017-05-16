@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function khatma()
     {
-        return $this->hasMany('App\Part', 'khatma_id');
+        return $this->belongsToMany('App\Khatma','user_khatma','user_id','khatma_id');
     }
 
     public function parts()
@@ -53,9 +53,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Part', 'user_id');
     }
 
-    public function subscribedKhatma()
-    {
-        return $this->belongsToMany('App\Khatma','user_khatma','user_id','khatma_id');
-    }
+    
     
 }
