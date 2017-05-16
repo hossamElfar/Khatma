@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Khatma;
 use App\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -53,9 +54,12 @@ class PersonsController extends Controller
         $t = $request->all();
         $t['user_id'] = $user->id;
         $person = Person::create($t);
+        $khatma = Khatma::create(['person_id'=>$person->id,'creator_id'=>$user->id]);
+        //TO DO add 30 parts foreach khatma
         $data['statues'] = "200 Ok";
         $data['error'] = null;
         $data['data']['case'] = $person;
+        $data['data']['case']['khatma'] = $khatma;
         return response()->json($data, 200);
     }
 

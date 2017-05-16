@@ -15,4 +15,13 @@ class Person extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function khatma()
+    {
+        return $this->hasMany('App\khatma')->first();
+    }
+
+    public function parts()
+    {
+        return $this->hasMany('App\Part','person_id');
+    }
 }
