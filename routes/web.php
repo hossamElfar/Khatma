@@ -42,7 +42,7 @@ Route::group(['prefix' => 'api/v1'], function () {
     /**
      * Subscribe to a part
      */
-    Route::get('parts/subscribe/{part_id}','API\PartsController@subscribe');
+    Route::get('parts/subscribe/{part_id}', 'API\PartsController@subscribe');
     /**
      * View a specific part
      */
@@ -50,5 +50,13 @@ Route::group(['prefix' => 'api/v1'], function () {
     /**
      * Add pages to a specific part
      */
-    Route::post('parts/{part_id}','API\PartsController@addPage');
+    Route::post('parts/{part_id}', 'API\PartsController@addPage');
+    /**
+     * View the authenticated user profile
+     */
+    Route::get('me', 'API\ProfileController@show');
+    /**
+     * View the profile of a specific user
+     */
+    Route::get('viewProfile/{id}', 'API\ProfileController@viewProfile');
 });

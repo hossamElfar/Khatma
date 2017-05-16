@@ -24,4 +24,5 @@ class Person extends Model
     {
         return $this->hasMany('App\Part', 'person_id');
     }
+    
 }
