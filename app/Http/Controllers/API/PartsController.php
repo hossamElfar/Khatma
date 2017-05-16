@@ -11,7 +11,7 @@ class PartsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only('subscribe');
+        $this->middleware('auth')->only('subscribe','addPage');
     }
 
     /**
@@ -61,7 +61,7 @@ class PartsController extends Controller
     {
         $user = Auth::user();
         $part = Part::findOrFail($part_id);
-        if (!$part->taken){
+        if (!$part->taken) {
             $khatma = $part->khatma->id;
             $user->parts()->save($part);
             $part->taken = true;
@@ -71,11 +71,66 @@ class PartsController extends Controller
             $data['error'] = null;
             $data['data'] = null;
             return response()->json($data, 200);
-        }else{
+        } else {
             $data['statues'] = "304 Not modified";
             $data['error'] = "Taken part";
             $data['data'] = null;
             return response()->json($data, 302);
+        }
+
+    }
+
+    /**
+     * Add pages to the current reading Part
+     *
+     * @param $part_id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addPage($part_id, Request $request)
+    {
+        $user = Auth::user();
+        $part = Part::findOrFail($part_id);
+        if ($part->user_id != $user->id) {
+            $data['statues'] = "401 Unauthorized";
+            $data['error'] = "Unauthorized action";
+            $data['data'] = null;
+            return response()->json($data, 401);
+        } else {
+            $start_page = $part->start_page;
+            $end_page = $part->end_page;
+            $current_page = $part->current_page;
+            $request_data = $request->all();
+            $add_page = intval($request_data['number']);
+            if ($add_page > 0) {
+                if ($current_page + $add_page > $end_page) {
+                    $data['statues'] = "304 Not modified";
+                    $data['error'] = "Cannot override the end page of this Juz";
+                    $data['data'] = null;
+                    return response()->json($data, 302);
+                } else {
+                    $part->current_page += $add_page;
+                    $part->save();
+                    $data['statues'] = "200 Ok";
+                    $data['error'] = null;
+                    $data['data'] = null;
+                    return response()->json($data, 200);
+                }
+            } else {
+                if ($current_page + $add_page < $start_page) {
+                    $data['statues'] = "304 Not modified";
+                    $data['error'] = "Cannot override the start page of this Juz";
+                    $data['data'] = null;
+                    return response()->json($data, 302);
+                } else {
+                    $part->current_page += $add_page;
+                    $part->save();
+                    $data['statues'] = "200 Ok";
+                    $data['error'] = null;
+                    $data['data'] = null;
+                    return response()->json($data, 200);
+                }
+            }
         }
 
     }

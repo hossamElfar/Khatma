@@ -47,4 +47,8 @@ Route::group(['prefix' => 'api/v1'], function () {
      * View a specific part
      */
     Route::get('parts/{id}', 'API\PartsController@show');
+    /**
+     * Add pages to a specific part
+     */
+    Route::post('parts/{part_id}','API\PartsController@addPage');
 });
