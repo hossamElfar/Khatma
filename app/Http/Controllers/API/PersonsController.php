@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Khatma;
+use App\Part;
 use App\Person;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,6 +34,31 @@ class PersonsController extends Controller
     public function index(Request $request)
     {
         $persons = Person::orderBy('id', 'DESC')->paginate(5);
+        foreach ($persons as $key_1 => $person) {
+            $khatma = $person->khatma()->get()[0];
+            $person['khatma_id'] = $khatma->id;
+            $overall = 0;
+            foreach ($khatma->parts as $key => $part) {
+                $end_page = $part->end_page;
+                $current_page = $part->current_page;
+                if ($key == 0) {
+                    $percentage = 100 - ((($end_page - $current_page) / 20) * 100);
+                } else {
+                    if ($key == 29) {
+                        $percentage = 100 - ((($end_page - $current_page) / 22) * 100);
+                    } else {
+                        if ($key == 24 || $key == 6) {
+                            $percentage = 100 - ((($end_page - $current_page) / 20) * 100);
+                        } else {
+                            $percentage = 100 - ((($end_page - $current_page) / 19) * 100);
+                        }
+                    }
+                }
+                $overall += $percentage;
+            }
+            $overall_percentage = ($overall / 30) * 100;
+            $person['progress'] = $overall_percentage;
+        }
         $data['statues'] = "200 Ok";
         $data['error'] = null;
         $data['data']['cases'] = $persons;
@@ -53,9 +80,19 @@ class PersonsController extends Controller
         $t = $request->all();
         $t['user_id'] = $user->id;
         $person = Person::create($t);
+        $khatma = new Khatma(['person_id' => $person->id, 'creator_id' => $user->id]);
+        $khatma->save();
+        $juzs = $this->getParts();
+        foreach ($juzs as $juz) {
+            $juz['khatma_id'] = $khatma->id;
+            $juz['person_id'] = $person->id;
+            Part::create($juz);
+        }
         $data['statues'] = "200 Ok";
         $data['error'] = null;
         $data['data']['case'] = $person;
+        $data['data']['case']['khatma'] = $khatma;
+        $data['data']['case']['khatma']['juz'] = $juzs;
         return response()->json($data, 200);
     }
 
@@ -123,5 +160,17 @@ class PersonsController extends Controller
             $data['data'] = null;
             return response()->json($data, 401);
         }
+    }
+
+    /**
+     * A function to get juzs info
+     *
+     * @return mixed
+     */
+    private function getParts()
+    {
+        $parts = file_get_contents("/home/hossam/projects/khatma/juz.json");
+        $parts_decoded = json_decode($parts, true);
+        return $parts_decoded;
     }
 }

@@ -31,4 +31,12 @@ Route::group(['prefix' => 'api/v1'], function () {
      * Cases resource
      */
     Route::resource('cases', 'API\PersonsController');
+    /**
+     * View all khatmas
+     */
+    Route::get('khatma', 'API\KhatmaController@index');
+    /**
+     * View a specific khatma
+     */
+    Route::get('khatma/{id}', 'API\KhatmaController@show');
 });

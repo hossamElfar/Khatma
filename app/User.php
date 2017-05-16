@@ -37,4 +37,25 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Person');
     }
+
+    public function created_khatmas()
+    {
+        return $this->hasMany('App\Khatma', 'creator_id');
+    }
+
+    public function khatma()
+    {
+        return $this->hasMany('App\Part', 'khatma_id');
+    }
+
+    public function parts()
+    {
+        return $this->hasMany('App\Part', 'user_id');
+    }
+
+    public function subscribedKhatma()
+    {
+        return $this->belongsToMany('App\Khatma','user_khatma','user_id','khatma_id');
+    }
+    
 }
