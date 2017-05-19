@@ -12,28 +12,15 @@ rsponse
   "error": null,
   "data": {
     "cases": {
-      "total": 2,
+      "total": 1,
       "per_page": 5,
       "current_page": 1,
       "last_page": 1,
       "next_page_url": null,
       "prev_page_url": null,
       "from": 1,
-      "to": 2,
+      "to": 1,
       "data": [
-        {
-          "id": 2,
-          "date_of_birth": "1997-07-14 00:00:00",
-          "date_of_death": "2017-05-10 00:00:00",
-          "description": "Description",
-          "pp": "",
-          "field": null,
-          "organization": null,
-          "user_id": 1,
-          "created_at": "2017-05-15 23:56:41",
-          "updated_at": "2017-05-15 23:56:41",
-          "name": "Ahmed"
-        },
         {
           "id": 1,
           "date_of_birth": null,
@@ -43,38 +30,13 @@ rsponse
           "field": null,
           "organization": null,
           "user_id": 1,
-          "created_at": "2017-05-15 23:55:58",
-          "updated_at": "2017-05-15 23:55:58",
-          "name": "Ahmed"
+          "created_at": "2017-05-16 21:30:38",
+          "updated_at": "2017-05-16 21:30:38",
+          "name": "Ahmed",
+          "khatma_id": 1,
+          "progress": 3.3333333333333
         }
       ]
-    }
-  }
-}
-
-GET \api\v1\cases\:id guest
-request
-{
-
-}
-
-response
-{
-  "statues": "200 Ok",
-  "error": null,
-  "data": {
-    "case": {
-      "id": 1,
-      "date_of_birth": null,
-      "date_of_death": "2017-05-10 00:00:00",
-      "description": "Description",
-      "pp": "",
-      "field": null,
-      "organization": null,
-      "user_id": 1,
-      "created_at": "2017-05-15 23:55:58",
-      "updated_at": "2017-05-15 23:55:58",
-      "name": "Ahmed"
     }
   }
 }
@@ -93,21 +55,267 @@ request
 
 response
 {
-  "statues": "200 Ok",
-  "error": null,
-  "data": {
-    "case": {
-      "id": 3,
-      "date_of_birth": null,
-      "date_of_death": "2017-05-10 00:00:00",
-      "description": "Description",
-      "pp": "",
-      "field": null,
-      "organization": null,
-      "user_id": 1,
-      "created_at": "2017-05-16 00:01:38",
-      "updated_at": "2017-05-16 00:01:38",
-      "name": "Ahmed"
+    "statues": "200 Ok",
+    "error": null,
+    "data": {
+        "case": {
+            "name": "Hossam Ahmed",
+            "date_of_birth": "1995-05-05 00:00:00",
+            "date_of_death": "2017-05-10 00:00:00",
+            "description": "Description",
+            "user_id": 1,
+            "updated_at": "2017-05-19 19:24:06",
+            "created_at": "2017-05-19 19:24:06",
+            "id": 2,
+            "khatma": {
+                "person_id": 2,
+                "creator_id": 1,
+                "updated_at": "2017-05-19 19:24:06",
+                "created_at": "2017-05-19 19:24:06",
+                "id": 2,
+                "juz": [
+                    {
+                        "number_of_part": 1,
+                        "name_en": "1st Juz",
+                        "name_ar": "",
+                        "start_page": 1,
+                        "end_page": 21,
+                        "current_page": 1
+                    },
+                    {
+                        "number_of_part": 2,
+                        "name_en": "2nd Juz",
+                        "name_ar": "",
+                        "start_page": 22,
+                        "end_page": 41,
+                        "current_page": 22
+                    },
+                    {
+                        "number_of_part": 3,
+                        "name_en": "3rd Juz",
+                        "name_ar": "",
+                        "start_page": 42,
+                        "end_page": 61,
+                        "current_page": 42
+                    },
+                    {
+                        "number_of_part": 4,
+                        "name_en": "4th Juz",
+                        "name_ar": "",
+                        "start_page": 62,
+                        "end_page": 81,
+                        "current_page": 62
+                    },
+                    {
+                        "number_of_part": 5,
+                        "name_en": "5th Juz",
+                        "name_ar": "",
+                        "start_page": 82,
+                        "end_page": 101,
+                        "current_page": 82
+                    },
+                    {
+                        "number_of_part": 6,
+                        "name_en": "6th Juz",
+                        "name_ar": "",
+                        "start_page": 102,
+                        "end_page": 121,
+                        "current_page": 102
+                    },
+                    {
+                        "number_of_part": 7,
+                        "name_en": "7th Juz",
+                        "name_ar": "",
+                        "start_page": 121,
+                        "end_page": 141,
+                        "current_page": 121
+                    },
+                    {
+                        "number_of_part": 8,
+                        "name_en": "8th Juz",
+                        "name_ar": "",
+                        "start_page": 142,
+                        "end_page": 161,
+                        "current_page": 142
+                    },
+                    {
+                        "number_of_part": 9,
+                        "name_en": "9th Juz",
+                        "name_ar": "",
+                        "start_page": 162,
+                        "end_page": 181,
+                        "current_page": 162
+                    },
+                    {
+                        "number_of_part": 10,
+                        "name_en": "10th Juz",
+                        "name_ar": "",
+                        "start_page": 182,
+                        "end_page": 201,
+                        "current_page": 182
+                    },
+                    {
+                        "number_of_part": 11,
+                        "name_en": "11th Juz",
+                        "name_ar": "",
+                        "start_page": 202,
+                        "end_page": 221,
+                        "current_page": 202
+                    },
+                    {
+                        "number_of_part": 12,
+                        "name_en": "12th Juz",
+                        "name_ar": "",
+                        "start_page": 222,
+                        "end_page": 241,
+                        "current_page": 222
+                    },
+                    {
+                        "number_of_part": 13,
+                        "name_en": "13th Juz",
+                        "name_ar": "",
+                        "start_page": 242,
+                        "end_page": 261,
+                        "current_page": 242
+                    },
+                    {
+                        "number_of_part": 14,
+                        "name_en": "14th Juz",
+                        "name_ar": "",
+                        "start_page": 262,
+                        "end_page": 281,
+                        "current_page": 262
+                    },
+                    {
+                        "number_of_part": 15,
+                        "name_en": "15th Juz",
+                        "name_ar": "",
+                        "start_page": 282,
+                        "end_page": 301,
+                        "current_page": 282
+                    },
+                    {
+                        "number_of_part": 16,
+                        "name_en": "16th Juz",
+                        "name_ar": "",
+                        "start_page": 302,
+                        "end_page": 321,
+                        "current_page": 302
+                    },
+                    {
+                        "number_of_part": 17,
+                        "name_en": "17th Juz",
+                        "name_ar": "",
+                        "start_page": 322,
+                        "end_page": 341,
+                        "current_page": 322
+                    },
+                    {
+                        "number_of_part": 18,
+                        "name_en": "18th Juz",
+                        "name_ar": "",
+                        "start_page": 342,
+                        "end_page": 361,
+                        "current_page": 342
+                    },
+                    {
+                        "number_of_part": 19,
+                        "name_en": "19th Juz",
+                        "name_ar": "",
+                        "start_page": 362,
+                        "end_page": 381,
+                        "current_page": 362
+                    },
+                    {
+                        "number_of_part": 20,
+                        "name_en": "20th Juz",
+                        "name_ar": "",
+                        "start_page": 282,
+                        "end_page": 401,
+                        "current_page": 282
+                    },
+                    {
+                        "number_of_part": 21,
+                        "name_en": "21th Juz",
+                        "name_ar": "",
+                        "start_page": 402,
+                        "end_page": 421,
+                        "current_page": 402
+                    },
+                    {
+                        "number_of_part": 22,
+                        "name_en": "22th Juz",
+                        "name_ar": "",
+                        "start_page": 422,
+                        "end_page": 441,
+                        "current_page": 422
+                    },
+                    {
+                        "number_of_part": 23,
+                        "name_en": "23th Juz",
+                        "name_ar": "",
+                        "start_page": 442,
+                        "end_page": 461,
+                        "current_page": 442
+                    },
+                    {
+                        "number_of_part": 24,
+                        "name_en": "24th Juz",
+                        "name_ar": "",
+                        "start_page": 462,
+                        "end_page": 481,
+                        "current_page": 462
+                    },
+                    {
+                        "number_of_part": 25,
+                        "name_en": "25th Juz",
+                        "name_ar": "",
+                        "start_page": 482,
+                        "end_page": 502,
+                        "current_page": 482
+                    },
+                    {
+                        "number_of_part": 26,
+                        "name_en": "26th Juz",
+                        "name_ar": "",
+                        "start_page": 502,
+                        "end_page": 521,
+                        "current_page": 502
+                    },
+                    {
+                        "number_of_part": 27,
+                        "name_en": "27th Juz",
+                        "name_ar": "",
+                        "start_page": 522,
+                        "end_page": 541,
+                        "current_page": 522
+                    },
+                    {
+                        "number_of_part": 28,
+                        "name_en": "28th Juz",
+                        "name_ar": "",
+                        "start_page": 542,
+                        "end_page": 561,
+                        "current_page": 542
+                    },
+                    {
+                        "number_of_part": 29,
+                        "name_en": "29th Juz",
+                        "name_ar": "",
+                        "start_page": 562,
+                        "end_page": 581,
+                        "current_page": 562
+                    },
+                    {
+                        "number_of_part": 30,
+                        "name_en": "30th Juz",
+                        "name_ar": "",
+                        "start_page": 582,
+                        "end_page": 604,
+                        "current_page": 582
+                    }
+                ]
+            }
+        }
     }
-  }
 }

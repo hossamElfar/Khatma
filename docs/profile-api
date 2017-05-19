@@ -1,0 +1,245 @@
+/*view profile api*/
+
+view the profile of the authenticated user
+GET api/v1/me user
+
+request
+{
+
+}
+
+response
+{
+    "statues": "200 Ok",
+    "error": null,
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "Hossam Ahmed",
+            "email": "hossam.elfar95@gmail.com",
+            "created_at": "2017-05-16 21:30:09",
+            "updated_at": "2017-05-16 21:30:19",
+            "phone": "01066795748",
+            "pp": "",
+            "organization": "Not in an organization yet",
+            "code": "kmauu",
+            "confirmed": "1",
+            "date_of_birth": "1995-05-05 00:00:00",
+            "gender": "male",
+            "parts": [
+                {
+                    "id": 1,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 1,
+                    "start_page": 1,
+                    "end_page": 21,
+                    "current_page": 21,
+                    "name_en": "1st Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 22:52:03",
+                    "user_id": 1,
+                    "progress": 100
+                },
+                {
+                    "id": 2,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 2,
+                    "start_page": 22,
+                    "end_page": 41,
+                    "current_page": 22,
+                    "name_en": "2nd Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 22:33:55",
+                    "user_id": 1,
+                    "progress": 0
+                },
+                {
+                    "id": 3,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 3,
+                    "start_page": 42,
+                    "end_page": 61,
+                    "current_page": 42,
+                    "name_en": "3rd Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 23:27:37",
+                    "user_id": 1,
+                    "progress": 0
+                },
+                {
+                    "id": 4,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 4,
+                    "start_page": 62,
+                    "end_page": 81,
+                    "current_page": 65,
+                    "name_en": "4th Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-19 19:37:16",
+                    "user_id": 1,
+                    "progress": 15.789473684211
+                }
+            ],
+            "khatmas": [
+                {
+                    "id": 1,
+                    "creator_id": 1,
+                    "person_id": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 21:30:38",
+                    "progress": 3.859649122807,
+                    "pivot": {
+                        "user_id": 1,
+                        "khatma_id": 1
+                    }
+                },
+                {
+                    "id": 1,
+                    "creator_id": 1,
+                    "person_id": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 21:30:38",
+                    "progress": 3.859649122807,
+                    "pivot": {
+                        "user_id": 1,
+                        "khatma_id": 1
+                    }
+                }
+            ]
+        }
+    }
+}
+
+view the profile of a user
+GET api/v1/viewProfile/:id
+
+request
+{
+
+}
+
+response
+{
+    "statues": "200 Ok",
+    "error": null,
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "Hossam Ahmed",
+            "email": "hossam.elfar95@gmail.com",
+            "created_at": "2017-05-16 21:30:09",
+            "updated_at": "2017-05-16 21:30:19",
+            "phone": "01066795748",
+            "pp": "",
+            "organization": "Not in an organization yet",
+            "code": "kmauu",
+            "confirmed": "1",
+            "date_of_birth": "1995-05-05 00:00:00",
+            "gender": "male",
+            "parts": [
+                {
+                    "id": 1,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 1,
+                    "start_page": 1,
+                    "end_page": 21,
+                    "current_page": 21,
+                    "name_en": "1st Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 22:52:03",
+                    "user_id": 1,
+                    "progress": 100
+                },
+                {
+                    "id": 2,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 2,
+                    "start_page": 22,
+                    "end_page": 41,
+                    "current_page": 22,
+                    "name_en": "2nd Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 22:33:55",
+                    "user_id": 1,
+                    "progress": 0
+                },
+                {
+                    "id": 3,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 3,
+                    "start_page": 42,
+                    "end_page": 61,
+                    "current_page": 42,
+                    "name_en": "3rd Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 23:27:37",
+                    "user_id": 1,
+                    "progress": 0
+                },
+                {
+                    "id": 4,
+                    "person_id": 1,
+                    "khatma_id": 1,
+                    "number_of_part": 4,
+                    "start_page": 62,
+                    "end_page": 81,
+                    "current_page": 65,
+                    "name_en": "4th Juz",
+                    "name_ar": "",
+                    "taken": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-19 19:37:16",
+                    "user_id": 1,
+                    "progress": 15.789473684211
+                }
+            ],
+            "khatmas": [
+                {
+                    "id": 1,
+                    "creator_id": 1,
+                    "person_id": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 21:30:38",
+                    "progress": 3.859649122807,
+                    "pivot": {
+                        "user_id": 1,
+                        "khatma_id": 1
+                    }
+                },
+                {
+                    "id": 1,
+                    "creator_id": 1,
+                    "person_id": 1,
+                    "created_at": "2017-05-16 21:30:38",
+                    "updated_at": "2017-05-16 21:30:38",
+                    "progress": 3.859649122807,
+                    "pivot": {
+                        "user_id": 1,
+                        "khatma_id": 1
+                    }
+                }
+            ]
+        }
+    }
+}
