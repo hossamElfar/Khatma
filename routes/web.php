@@ -59,4 +59,12 @@ Route::group(['prefix' => 'api/v1'], function () {
      * View the profile of a specific user
      */
     Route::get('viewProfile/{id}', 'API\ProfileController@viewProfile');
+    /**
+     * Get latest cases
+     */
+    Route::get('latest','API\HomeController@latest');
+    /**
+     * User's progress
+     */
+    Route::get('progress','API\HomeController@progress');
 });
